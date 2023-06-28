@@ -69,7 +69,7 @@ public:
     const Iterator begin() const { return Iterator(data); }
     const Iterator end() const { return Iterator(data + container_size); }
 
-    // Copy constructor
+    //копирование конструктора
     MyContainer(const MyContainer<T>& other)
         : data(new T[other.container_size]),
         container_size(other.container_size),
@@ -78,7 +78,7 @@ public:
         std::copy(other.data, other.data + other.container_size, data);
     }
 
-    // Move constructor
+    //перемещение конструктора
     MyContainer(MyContainer<T>&& other)
         : data(other.data),
         container_size(other.container_size),
@@ -100,7 +100,7 @@ public:
         return *this;
     }
 
-    // Move assignment operator
+    // оператор присваивания
     MyContainer<T>& operator=(MyContainer<T>&& other) {
         std::swap(this->data, other.data);
         std::swap(this->container_size, other.container_size);
@@ -152,11 +152,11 @@ public:
         : name(playerName), position(playerPosition), age(playerAge) {}
 
     void train() {
-        std::cout << name << " - " << position << ": ����������..." << std::endl;
+        std::cout << name << " - " << position << ": Тренировка..." << std::endl;
     }
 
     void play() {
-        std::cout << name << " - " << position << ": ����..." << std::endl;
+        std::cout << name << " - " << position << ": Игра..." << std::endl;
     }
 };
 
@@ -209,7 +209,7 @@ public:
         strike(0), physique(0), hand_play(0), footwork(0), defense(0), rating(0) {}
 
     void displayClub() {
-        std::cout << "������� ����: ��������� ����" << std::endl;
+        std::cout << "Текущий клуб: Манчестер сити" << std::endl;
     }
 
     std::string getName() const {
@@ -237,16 +237,16 @@ public:
     }
 
     int calculatePlayerRating() {
-        if (position == "����������") {
+        if (position == "Нападающий") {
             rating = (strike + pace) / 2;
         }
-        else if (position == "������������") {
+        else if (position == "Полузащитник") {
             rating = (passes + stamina) / 2;
         }
-        else if (position == "��������") {
+        else if (position == "Защитник") {
             rating = (defense + stamina) / 2;
         }
-        else if (position == "�������") {
+        else if (position == "Вратарь") {
             rating = (hand_play + footwork) / 2;
         }
 
@@ -274,15 +274,15 @@ public:
     }
 
     void displayClubInfo() {
-        std::cout << "Club Name: " << name << std::endl;
-        std::cout << "Stadium: " << stadium << std::endl;
+        std::cout << "Название клуба: " << name << std::endl;
+        std::cout << "Стадион: " << stadium << std::endl;
     }
 
     template <typename Func>
     void checkPlayerAge(Func func) {
         for (const Player& player : players) {
             if (func(player)) {
-                std::cout << player.getName() << " is less than 41 years old." << std::endl;
+                std::cout << player.getName() << "меньше 41 года" << std::endl;
             }
         }
     }
@@ -293,7 +293,7 @@ public:
         std::copy_if(players.begin(), players.end(), std::back_inserter(ageCheckRange), func);
 
         for (const Player& player : ageCheckRange) {
-            std::cout << player.getName() << " is less than 41 years old." << std::endl;
+            std::cout << player.getName() << " меньше 41 года" << std::endl;
         }
     }
 
@@ -305,12 +305,12 @@ public:
         for (Player& player : players) {
             if (player.getName() == playerName) {
                 player.changePlayerPosition(newPosition);
-                std::cout << playerName << " ������� ������� � " << player.getPosition() << " �� " << newPosition << std::endl;
+                std::cout << playerName << " поменял позицию с " << player.getPosition() << " на " << newPosition << std::endl;
                 return;
             }
         }
 
-        std::cout << "����� �� ������." << std::endl;
+        std::cout << "Игрок не найден." << std::endl;
     }
 
     class ClubMemento {
