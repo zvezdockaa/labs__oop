@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include "football.h"
 
 int main() {
@@ -25,8 +25,6 @@ int main() {
 
     // Сохранение состояния клуба
     FootballClub::ClubMemento memento = manchesterCity.createMemento();
-
-    // Перебор игроков с использованием итератора
 
 
     return 0;
