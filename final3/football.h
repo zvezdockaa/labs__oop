@@ -1,145 +1,146 @@
 #pragma once
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <ranges>
 
 template <typename T>
-class MyContainer {
-    T* data;
-    size_t container_size;
-    size_t container_capacity;
-
-    void ensure_capacity(size_t new_size) {
-        if (new_size > container_capacity) {
-            container_capacity = container_capacity + container_capacity / 2 + 1;
-            T* new_data = new T[container_capacity];
-            for (size_t i = 0; i < container_size; ++i) {
-                new_data[i] = std::move(data[i]);
-            }
-            delete[] data;
-            data = new_data;
-        }
-    }
-    class Iterator {
-        T* ptr;
-
-    public:
-        using value_type = T;
-        using pointer = T*;
-        using reference = T&;
-        using difference_type = std::ptrdiff_t;
-        using iterator_category = std::random_access_iterator_tag;
-
-        Iterator() : ptr(nullptr) {}
-        explicit Iterator(pointer p) : ptr(p) {}
-
-        reference operator*() const { return *ptr; }
-        pointer operator->() const { return ptr; }
-        reference operator[](difference_type n) const { return *(ptr + n); }
-
-        Iterator& operator++() { ++ptr; return *this; }
-        Iterator& operator--() { --ptr; return *this; }
-        Iterator operator++(int) { Iterator tmp(*this); ++ptr; return tmp; }
-        Iterator operator--(int) { Iterator tmp(*this); --ptr; return tmp; }
-
-        Iterator& operator+=(difference_type n) { ptr += n; return *this; }
-        Iterator& operator-=(difference_type n) { ptr -= n; return *this; }
-
-        friend Iterator operator+(const Iterator& it, difference_type n) { return Iterator(it.ptr + n); }
-        friend Iterator operator+(difference_type n, const Iterator& it) { return it + n; }
-        friend Iterator operator-(const Iterator& it, difference_type n) { return Iterator(it.ptr - n); }
-        friend Iterator operator-(const Iterator& it1, const Iterator& it2) { return Iterator(it1.ptr - it2.ptr); }
-
-        friend bool operator==(const Iterator& it1, const Iterator& it2) { return it1.ptr == it2.ptr; }
-        friend bool operator!=(const Iterator& it1, const Iterator& it2) { return !(it1 == it2); }
-        friend bool operator<(const Iterator& it1, const Iterator& it2) { return it1.ptr < it2.ptr; }
-        friend bool operator>(const Iterator& it1, const Iterator& it2) { return it2 < it1; }
-        friend bool operator<=(const Iterator& it1, const Iterator& it2) { return !(it2 < it1); }
-        friend bool operator>=(const Iterator& it1, const Iterator& it2) { return !(it1 < it2); }
-    };
-
+class ContainerIterator {
 public:
-    MyContainer()
-        : data(nullptr), container_size(0), container_capacity(0)
-    {}
-    Iterator begin() { return Iterator(data); }
-    Iterator end() { return Iterator(data + container_size); }
-    const Iterator begin() const { return Iterator(data); }
-    const Iterator end() const { return Iterator(data + container_size); }
+    using value_type = T;
+    using reference = T&;
+    using pointer = T*;
+    using iterator_category = std::forward_iterator_tag;
+    using difference_type = std::ptrdiff_t;
 
-    //копирование конструктора
-    MyContainer(const MyContainer<T>& other)
-        : data(new T[other.container_size]),
-        container_size(other.container_size),
-        container_capacity(other.container_capacity)
-    {
-        std::copy(other.data, other.data + other.container_size, data);
+    // конструктор
+    explicit ContainerIterator(pointer ptr) : ptr_(ptr) {}
+
+    // oператор разыменования
+    reference operator*() const {
+        return *ptr_;
     }
 
-    //перемещение конструктора
-    MyContainer(MyContainer<T>&& other)
-        : data(other.data),
-        container_size(other.container_size),
-        container_capacity(other.container_capacity)
-    {
-        other.data = nullptr;
-        other.container_size = 0;
-        other.container_capacity = 0;
-    }
-
-    // оператор копирования
-    MyContainer<T>& operator=(const MyContainer<T>& other) {
-        if (this != &other) {
-            MyContainer<T> tmp(other);
-            std::swap(this->data, tmp.data);
-            std::swap(this->container_size, tmp.container_size);
-            std::swap(this->container_capacity, tmp.container_capacity);
-        }
+    // пре инкремент
+    ContainerIterator& operator++() {
+        ++ptr_;
         return *this;
     }
 
-    // оператор присваивания
-    MyContainer<T>& operator=(MyContainer<T>&& other) {
-        std::swap(this->data, other.data);
-        std::swap(this->container_size, other.container_size);
-        std::swap(this->container_capacity, other.container_capacity);
-        return *this;
+    // пост-инкремент
+    ContainerIterator operator++(int) {
+        ContainerIterator iterator = *this;
+        ++(*this);
+        return iterator;
     }
 
-    ~MyContainer() {
-        delete[] data;
+    // проверка равенства
+    bool operator==(const ContainerIterator& other) const {
+        return ptr_ == other.ptr_;
     }
 
-    size_t size() const {
-        return container_size;
+    // проверка неравенства
+    bool operator!=(const ContainerIterator& other) const {
+        return !(*this == other);
     }
 
-    bool empty() const {
-        return container_size == 0;
-    }
-
-    void push_back(const T& value) {
-        ensure_capacity(container_size + 1);
-        data[container_size++] = value;
-    }
-
-    void push_back(T&& value) {
-        ensure_capacity(container_size + 1);
-        data[container_size++] = std::move(value);
-    }
-
-    void erase(size_t index) {
-        if (index >= container_size) {
-            throw std::out_of_range("Index is out of range");
-        }
-        for (size_t i = index + 1; i < container_size; ++i) {
-            data[i - 1] = std::move(data[i]);
-        }
-        --container_size;
-    }
+private:
+    pointer ptr_;
 };
+
+template <typename T>
+class Container {
+public:
+    using value_type = T;
+    using reference = T&;
+    using const_reference = const T&;
+    using iterator = ContainerIterator<T>;
+    using const_iterator = ContainerIterator<const T>;
+    using difference_type = std::ptrdiff_t;
+    using size_type = std::size_t;
+
+    // конструктор по умолчанию
+    Container() = default;
+
+    // конструктор копирования
+    Container(const Container& other) : data_(other.data_) {}
+
+    // консруктор перемещения
+    Container(Container&& other) noexcept : data_(std::move(other.data_)) {}
+
+    // Copy assignment operator
+    Container& operator=(const Container& other) {
+        if (this != &other) {
+            data_ = other.data_;
+        }
+        return *this;
+    }
+
+    // перемещение оператора присваивания
+    Container& operator=(Container&& other) noexcept {
+        if (this != &other) {
+            data_ = std::move(other.data_);
+        }
+        return *this;
+    }
+
+    // деструктор
+    ~Container() = default;
+
+    // начало
+    iterator begin() {
+        return iterator(data_.data());
+    }
+
+    // конец
+    iterator end() {
+        return iterator(data_.data() + data_.size());
+    }
+
+    // константный итератор
+    const_iterator begin() const {
+        return const_iterator(data_.data());
+    }
+
+    // 
+    const_iterator end() const {
+        return const_iterator(data_.data() + data_.size());
+    }
+
+    // оператор проверки равенства
+    bool operator==(const Container& other) const {
+        return data_ == other.data_;
+    }
+
+    // оператор проверки неравенства
+    bool operator!=(const Container& other) const {
+        return !(*this == other);
+    }
+
+    // обмен содержимого контейнера
+    void swap(Container& other) {
+        std::swap(data_, other.data_);
+    }
+
+    // кол-во элементов в контейнере
+    size_type size() const {
+        return data_.size();
+    }
+
+    // макс кол-во элементов в контейнере
+    size_type max_size() const {
+        return data_.max_size();
+    }
+
+    // проверка на пустоту
+    bool empty() const {
+        return data_.empty();
+    }
+
+private:
+    std::vector<T> data_;
+};
+
 
 class Young_Player {
 private:
@@ -266,7 +267,7 @@ class FootballClub {
 private:
     std::string name;
     std::string stadium;
-    std::vector<Player> players;
+    Container<Player> players;
 
 public:
     void addPlayer(const std::string& name, const std::string& position, int age) {
@@ -282,7 +283,7 @@ public:
     void checkPlayerAge(Func func) {
         for (const Player& player : players) {
             if (func(player)) {
-                std::cout << player.getName() << "меньше 41 года" << std::endl;
+                std::cout << player.getName() << " меньше 41 года" << std::endl;
             }
         }
     }
