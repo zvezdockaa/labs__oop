@@ -89,7 +89,7 @@ public:
         other.container_capacity = 0;
     }
 
-    // Copy assignment operator
+    // оператор копирования
     MyContainer<T>& operator=(const MyContainer<T>& other) {
         if (this != &other) {
             MyContainer<T> tmp(other);
