@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сравнение пород собак</title>
+</head>
+<body>
+    <h1 align="center">Сравнительная таблица пород собак</h1>
+	<p>
+
+	<details>
+	<summary> Диаграмма </summary>
+	<form>
+		<p>
+		Значение по оси ОХ:<br>
+		<input  type="radio"  name="type" value="size"> Размер <br>
+		<input  type="radio"  name="type" value="country"> Страна происхождения 
+		</p>
+		<input type="submit" value="Построить">
+	</form>
+	<form>
+		<p>
+		Значение по оси ОY:<br>
+		<input  type="radio"  name="type" value="amount" checked> Количество пород 
+		</p>
+	</form>
+	</details>
+	</p>
+	
+	<p>
+	<details>
+	<summary> Фильтр </summary>
+	<form>
+	<fieldset>
+		<p>
+		Тип:
+			<select name="size">
+			 <option value="0"> Маленький </option>
+			 <option value="1" > Средний</option>
+			 <option value="2"> Большой </option>
+			</select>
+
+		</p>
+		
+		<p>
+		Порода:<input type="text">
+		</p>
+		<p>
+		Страна происхождения:<input type="text">
+		</p>
+		
+		<p>
+		 Подходит для семьи с детьми?
+		<input  type="radio"  name="family" value="yes"> Да
+		<input  type="radio"  name="family" value="no"> Нет
+		</p>
+		
+		<p>
+		Легко дрессируется?
+		<input  type="radio"  name="training" value="yes"> Да
+		<input  type="radio"  name="training" value="no"> Нет
+		</p>
+		
+		<p>
+		Хороший охранник?
+		<input  type="radio"  name="guard" value="yes"> Да
+		<input  type="radio"  name="guard" value="no"> Нет
+		</p>
+		<input type="submit" value="Найти">
+	</fieldset>
+	</form>
+	</details>
+	
+	<p>
+	<details>
+	<summary> Сортировка </summary>
+	<p>
+		Отсортировать по:
+			<select name="sort">
+			 <option value="0"> По типу </option>
+			 <option value="1" > По стране происхождения</option>
+			 <option value="2"> По названию породы </option>
+			</select>
+
+		</p>
+	</details>
+
+    <table border="1">
+        <tr>
+			<th>№</th>
+            <th>Название породы</th>
+            <th>Размер</th>
+            <th>Страна(регион) происхождения</th>
+            <th>Подходит для семьи с детьми?</th>
+            <th>Легко дрессируется?</th>
+            <th>Хороший охранник?</th>
+        </tr>
+        <!-- Small Breeds -->
+        <tr>
+			<td>1</td>
+            <td>Померанский шпиц</td>
+            <td>Маленький</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>2</td>
+            <td>Чихуахуа</td>
+            <td>Маленький</td>
+            <td>Мексика</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>3</td>
+            <td>Цвергшнауцер</td>
+            <td>Маленький</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>4</td>
+            <td>Корги</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>5</td>
+            <td>Йоркширский терьер</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>6</td>
+            <td>Карликовый пудель</td>
+            <td>Маленький</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>7</td>
+            <td>Мальтийская болонка</td>
+            <td>Маленький</td>
+            <td>остров Мальта</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>8</td>
+            <td>Гриффон</td>
+            <td>Маленький</td>
+            <td>Бельгия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>9</td>
+            <td>Джек-рассел терьер</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>10</td>
+            <td>Французский бульдог</td>
+            <td>Маленький</td>
+            <td>Франция</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <!-- Medium Breeds -->
+        <tr>
+			<td>11</td>
+            <td>Aвстралийский келпи</td>
+            <td>Средний</td>
+            <td>Австралия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>12</td>
+            <td>Аляскинский маламут</td>
+            <td>Средний</td>
+            <td>США</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>13</td>
+            <td>Английский бульдог</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>14</td>
+            <td>Английский сеттер</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>15</td>
+            <td>Английский спрингер спаниэль</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>16</td>
+            <td>Велш терьер</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>17</td>
+            <td>Карело-финская лайка</td>
+            <td>Средний</td>
+            <td>Финляндия</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>18</td>
+            <td>Пудель</td>
+            <td>Средний</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>19</td>
+            <td>Сиба-ину(шиба-ину)</td>
+            <td>Средний</td>
+            <td>Япония</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>20</td>
+            <td>Шарпей</td>
+            <td>Средний</td>
+            <td>Китай</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>21</td>
+            <td>Бернская горная собака</td>
+            <td>Средний</td>
+            <td>Швейцария</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <!-- Large Breeds -->
+        <tr>
+			<td>22</td>
+            <td>Доберман</td>
+            <td>Большой</td>
+            <td>Германия</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>23</td>
+            <td>Золотистый ретривер</td>
+            <td>Большой</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>24</td>
+            <td>Колли</td>
+            <td>Большой</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>25</td>
+            <td>Ньюфаундленд</td>
+            <td>Большой</td>
+            <td>Канада</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>26</td>
+            <td>Ротвейлер</td>
+            <td>Большой</td>
+            <td>Германия</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>27</td>
+            <td>Среднеазиатская овчарка</td>
+            <td>Большой</td>
+            <td>Центральная Азия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>28</td>
+            <td>Кане корсо</td>
+            <td>Большой</td>
+            <td>Италия</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>29</td>
+            <td>Сибирский хаски</td>
+            <td>Большой</td>
+            <td>Сибирь</td>
+            <td>Нет</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+		<tr>
+			<td>30</td>
+            <td>Норвич терьер</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+		<tr>
+			<td>31</td>
+            <td>Пекинес</td>
+            <td>Маленький</td>
+            <td>Китай</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+		 <tr>
+			<td>32</td>
+            <td>Той терьер</td>
+            <td>Маленький</td>
+            <td>Россия</td>
+            <td>Нет</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+		  <tr>
+			<td>33</td>
+            <td>Миттельшнауцер</td>
+            <td>Средний</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+		 <tr>
+			<td>34</td>
+            <td>Ризеншнауцер</td>
+            <td>Большой</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+		<tr>
+			<td>35</td>
+            <td>Самоед</td>
+            <td>Большой</td>
+            <td>Север Евразии</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>36</td>
+            <td>Алабай</td>
+            <td>Большой</td>
+            <td>Центральная Азия</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>37</td>
+            <td>Немецкая овчарка</td>
+            <td>Большой</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>38</td>
+            <td>Мопс</td>
+            <td>Маленький</td>
+            <td>Китай</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>39</td>
+            <td>Шотландский терьер</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>40</td>
+            <td>Питбуль</td>
+            <td>Средний</td>
+            <td>США</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>41</td>
+            <td>Шелти</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        <tr>
+			<td>42</td>
+            <td>Ши-тцу</td>
+            <td>Маленький</td>
+            <td>Тибет</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>43</td>
+            <td>Вест хайленд уайт терьер</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>44</td>
+            <td>Гладкошерстный фокстерьер</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>45</td>
+            <td>Такса</td>
+            <td>Маленький</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>46</td>
+            <td>Бобтейл</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+		<tr>
+			<td>47</td>
+            <td>Русский черный терьер</td>
+            <td>Большой</td>
+            <td>Россия</td>
+            <td>Нет</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+			<td>48</td>
+            <td>Афганская борзая</td>
+            <td>Большой</td>
+            <td>Афганистан</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>49</td>
+            <td>Русская борзая</td>
+            <td>Средний</td>
+            <td>Россия</td>
+            <td>Нет</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>50</td>
+            <td>Борзая</td>
+            <td>Большой</td>
+            <td>Великобритания</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>51</td>
+            <td>Акита Ину</td>
+            <td>Большой</td>
+            <td>Япония</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>52</td>
+            <td>Южнорусская овчарка</td>
+            <td>Большой</td>
+            <td>Россия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>53</td>
+            <td>Папильон</td>
+            <td>Маленький</td>
+            <td>Франция и Бельгия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>54</td>
+            <td>Чау-чау</td>
+            <td>Средний</td>
+            <td>Китай</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>55</td>
+            <td>Бультерьер</td>
+            <td>Средний</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>56</td>
+            <td>Бигль</td>
+            <td>Маленький</td>
+            <td>Великобритания</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>57</td>
+            <td>Американский стаффордширский терьер</td>
+            <td>Средний</td>
+            <td>США</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>58</td>
+            <td>Немецкий боксер</td>
+            <td>Средний</td>
+            <td>Германия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+        </tr>
+        <tr>
+			<td>59</td>
+            <td>Басенджи</td>
+            <td>Маленький</td>
+            <td>Центральная Африка</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>Нет</td>
+        </tr>
+        <tr>
+			<td>60</td>
+            <td>Венгерская выдровая гончая</td>
+            <td>Большой</td>
+            <td>Венгрия</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Нет</td>
+        </tr>
+    </table>
+</body>
+</html>
