@@ -1,0 +1,134 @@
+#content {
+	display: inline-block;
+	background-color:#defff6;
+
+}
+.menu {
+	display: inline-block;
+	width: 100%;
+	height: 60px;
+	background-color: LightGrey;
+	float:right;
+	overflow:hidden;
+	text-align:right;
+	font-size:2em;
+	padding:5px;
+}
+.menu a {
+  text-decoration: none; 
+  color: black; 
+  padding:30px;
+  vertical-align:bottom;
+}
+.menu a:hover {
+  background-color: lightblue;
+  color:yellow;
+}
+.menu span{
+	float:left;
+	font-weight:bold;
+	font-size:1.5em;
+}
+.image {
+	display:inline;
+	margin: 30px auto;
+	width: 60%;
+}
+
+.parent-container {
+  text-align: center;
+  margin:10px;
+}
+.content_pics { 
+  display: inline-block; 
+  width: 65%; 
+  padding: 5px; 
+  margin: 20px auto; 
+  background-color: aqua; 
+}
+
+.picture { 
+  display: inline-block; 
+  width: 60%; 
+  height: 100%;
+  padding: 5px 10px; 
+  vertical-align:top;
+  overflow: hidden; 
+  float:left;
+}
+
+.pics { 
+  display:inline-block; 
+  height:70%;
+  vertical-align: top;  
+  padding: 5px 5px;
+  overflow: hidden; 
+}
+
+
+.logo {
+  display: inline-block; 
+  margin: 10px;
+  vertical-align: top; 
+  text-align: center;
+  width:15%; 
+}
+
+.logo img {
+  border-radius: 100%;
+  max-width: 100%;
+}
+
+.logo span {
+  display: block; 
+  text-align: justify;
+  border: 1px solid black;
+  padding: 5px; 
+}
+
+.text{
+	display:inline-block;
+	border:solid thin grey;
+	width:80%;
+	padding:5px;
+	margin:100px:
+}
+.text h2{
+	font-weight:bold;
+	text-align:center;
+}
+.text p{
+	text-align:justify;
+	width:100%;
+	font-size:1.2em;
+}
+
+.text img{
+	width:30%;
+	overflow:hidden;
+	padding:5px;
+	float:left;
+}
+.bottom {
+  width: 100%;
+  height: 50px;
+  background-color: grey;
+  line-height: 50px; 
+  display: inline-block; 
+  vertical-align: middle; 
+  font-weight: bold;
+
+}
+
+.bottom span {
+  display: inline-block;
+  vertical-align: middle; 
+  font-weight: bold;
+}
+.right {
+	float:right;
+}
+
+
+
+
