@@ -1,0 +1,186 @@
+col_b = black
+col_w = white
+col_g = grey
+width_max = 100%
+width_average = 80%
+gap = 3px
+fit = cover
+style-img(width_max, fit)
+	width width_max
+	object-fit fit
+style-span(weight, size)
+	font-weight weidht
+	font-size size
+style-module(disp, dir, wid, align)
+	display disp
+	flex-direction dir
+	width wid
+	margin align
+.header
+	display inline-flex
+	flex-direction row-reverse
+	background-color col_g
+	width width_max
+	input
+		width width_max-60%
+.menu
+	display grid
+	background-color lightGrey
+	width width_max
+	grid-template-columns 4fr 1fr 1fr 1fr
+	a, span
+		text-decoration none
+		color col_b
+		vertical-align bottom
+		font-size 1.5em
+	span
+		style-span(bold, 2em)
+	a:hover
+		background-color col_b
+		color col_w
+.picture
+	display grid
+	grid-template-rows repeat(3, 1fr)
+	grid-template-columns repeat(2, 1fr)
+	grid-template-areas "img1 img2" "img1 img3" "img1 img4"
+	grid-gap gap
+	margin 0 auto
+	width width_max-40%
+	height 70%
+	& > .item-img1
+		grid-area img1
+	& > .item-img2
+		grid-area img2
+	& > .item-img3
+		grid-area img3
+	& > .item-img4
+		grid-area img4
+.logo
+	display flex
+	width width_max-20%
+	margin auto
+	justify-content space-around
+	& > div
+		display flex
+		flex-direction column
+		align-items center
+		text-align center
+		width width_max-80%
+	img
+		border-radius 100%
+		width width_max-30%
+	p
+		text-align justify
+		overflow hidden
+		width width_max-30%
+		border 1px solid black
+.module1
+	style-module(flex, rows, width_average, auto)
+	& > .module_text
+		flex 2
+	& > .module-image
+		flex 1
+.module2
+	style-module(flex, column, width_max, auto)
+	align-items center
+	h2
+		text-align center
+	span
+		text-align justify
+.bottom
+	width width_max
+	height 100%
+	background-color col_g
+	display grid
+	grid-template-rows 1fr
+	grid-template-columns repeat(2, 1fr)
+	font-weight bold
+	span
+		align-content center
+		font-weight bold
+	.left
+		text-align left
+	.right
+		text-align right
+
+@media(max-width: 600px)
+	.picture
+		display grid
+		grid-template-rows repeat(4, auto)
+		grid-template-columns 1fr
+		justify-content space-between
+		grid-template-areas "img1" "img2" "img3" "img4"
+		grid-gap gap
+		margin 0 auto
+		width width_max
+		height auto
+		& > .item-img1
+			grid-area img1
+			img
+				style-img(width_max, cover)
+		& > .item-img2
+			grid-area img2
+			width width_max
+			img
+				style-img(width_max, cover)
+		& > .item-img3
+			grid-area img3
+			img
+				style-img(width_max, cover)
+		& > .item-img4
+			grid-area img4
+			img
+				style-img(width_max, cover)
+	.header
+		display none
+		flex-direction column
+		align-items center
+		input
+			width 100%
+	.menu
+		background-color transparent
+		display flex
+		flex-direction row
+		flex-wrap wrap
+		a
+			width 50%
+		span
+			display none
+	.logo
+		display flex
+		flex-direction column
+		width width_max
+		flex-wrap wrap
+		& > div
+			width width_max
+		p
+			width width_max
+	.module1
+		display flex
+		flex-direction column
+		align-items center
+		& > .module_text p
+			width width_max
+		& > .module-image img
+			width width_max
+	.module2
+		display flex
+		flex-wrap wrap
+		justify-content center
+		h2
+			width width_max
+			text-align center
+		span
+			width width_max
+	.bottom
+		display flex
+		flex-direction column
+		flex-wrap wrap
+		justify-content center
+		span
+			width width_max/2
+			text-align center
+	.left
+		text-align center
+	.right
+		text-align center
