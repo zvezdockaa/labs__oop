@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="task">
+    <div class="input">
+      <form>
+        <p>
+          <select id="data-select">
+            <option value="data1">Основания трапеции и боковая сторона</option>
+            <option value="data2">Основания трапеции и угол между основанием и боковой стороной</option>
+          </select>
+        </p>
+        <div id="input1" style="display:none;">
+          Введите первое основание трапеции: <input type="text" id="base1">
+          <br>
+          Введите второе трапеции: <input type="text" id="base2">
+          <br>
+          Введите боковую сторону: <input type="text" id="side">
+          <br>
+          <img src="vysota-pryamoug-trapetsii-exc-1.png">
+        </div>
+        <div id="input2" style="display:none;">
+          Введите первое трапеции: <input type="text" id="base3">
+          <br>
+          Введите второе трапеции: <input type="text" id="base4">
+          <br>
+          Введите угол между основанием и боковой стороной: <input type="text" id="angle">
+          <br>
+          <img src="vysota-pryamoug-trapetsii-exc-4.png">
+        </div>
+        <input type="button" value="Показать" onclick="showInput()">
+        <p>
+          Найти:
+          <br>
+          <label><input type="checkbox" id="task1">высота</label>
+          </br>
+          <label><input type="checkbox" id="task2">площадь</label>
+          <label><input type="checkbox" id="task3">периметр</label>
+        </p>
+        <p>
+          <input type="button" value="Вычислить" onClick="calculate(this.form)">
+          <input type="button" value="Очистить" onClick="clearInput()">
+        </p>
+      </form>
+    </div>
+    <div id="output">
+    </div>
+  </div>
+  <script src="program.js"></script>
+</body>
+</html>
