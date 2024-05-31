@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Роза Гранди</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+  <!-- Форма для управления анимацией -->
+  <form id="animation-form">
+    <label for="speed">Скорость анимации (мс):</label>
+    <input type="number" id="speed" name="speed" min="1">
+    <label for="effect">Выберите эффект:</label>
+    <select id="effect" name="effect">
+      <option value="none">Нет эффекта</option>
+      <option value="scaling">Увеличение</option>
+      <option value="rotation">Вращение</option>
+    </select>
+    <button type="button" id="start-animation" onclick="startAnimation()">Старт</button>
+    <button type="button" id="clear-animation" onclick="clearAnimation()">Очистить</button>
+  </form>
+
+  <!-- Контейнер SVG для рисования розы -->
+  <svg id="flower-container"></svg>
+
+  <script src="program.js"></script>
+</body>
+</html>
