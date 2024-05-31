@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Породы собак</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="header">
+      <input type="text">
+    </div>
+    <div class="menu"><span>Породы собак</span><a href="index.html">Меню 1</a><a href="маленькие собачки.html">Меню 2</a><a href="table.html">Меню 3</a>
+    </div>
+    <p>
+      <details>
+        <summary>Диаграмма</summary>
+        <form>
+          <p></p>Значение по оси ОХ:<br>
+          <input type="radio" name="type" value="size">Размер<br>
+          <input type="radio" name="type" value="country">Страна происхождения
+          <input type="submit" value="Построить">
+        </form>
+        <form>
+          <p></p>Значение по оси ОY:<br>
+          <input type="radio" name="type" value="amount" checked>Количество пород
+          <input type="radio" name="type" value="amount" checked>Рост собаки
+        </form>
+      </details>
+    </p>
+    <p>
+      <details>
+        <summary>Фильтр</summary>
+        <fieldset>
+        <form id="filterForm">
+          <p>
+            <label for="breed">Название породы</label>
+            <input type="text" id="breed">
+          </p>
+          <p>
+            <label for="size">Размер</label>
+            <input type="text" id="size">
+            </p>
+          <p>
+            
+            <label for="heightFrom">Рост собаки в среднем</label>
+            от <input type="number" id="heightFrom">
+            до <input type="number" id="heightTo">
+          </p>
+          <p>
+            <label for="origin">Страна(регион) происхождения</label>
+            <input type="text" id="origin">
+          </p>
+          <label for="yearFrom">Средняя продолжительность жизни</label>
+          от <input type="number" id="yearFrom">
+          до <input type="number" id="yearTo">
+        </p>
+
+          <input type="button" value="Найти" onclick="filterTable(dogData,'list',this.form)" id="filterButton">
+          <input type="button" value="Очистить фильтры" onclick="clearFilter()" id="filterClearButton">
+          </form>
+        </fieldset>
+    </details>
+    
+      <p>
+        <details>
+          <summary>Сортировка</summary>
+          <form id="sort">
+            <p> Сортировать по</p>
+            <p>
+            <select id="fieldsFirst">
+            </select>
+            по убыванию? <input type="checkbox" id="fieldsFirstDesc">
+            </p>
+            <p>
+            <select id="fieldsSecond">
+            </select>
+            по убыванию? <input type="checkbox" id="fieldsSecondDesc">
+            </p>
+            <input type="button" value="Сортировать" onclick="sortTable('list',this.form)" id="sortButton">
+            <input type="button" onclick="resetAllSorting()" value="Сбросить сортировку">
+            </form> 
+          
+        </details>
+      </p>
+    </p>
+    <table border="1" id='list'>
+    </table>
+    <div class="bottom"><span>Храмцова Софья Б9121-09.03.04, 2023-2024</span><span class="right">Контакты</span></div>
+    <script defer src="program.js"></script>
+    <script defer src="data_dogs.js"></script>
+  </body>
+</html>
