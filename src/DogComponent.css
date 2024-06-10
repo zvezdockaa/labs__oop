@@ -1,0 +1,43 @@
+.scene {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .dog {
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+    width: 200px;
+    height: 120px;
+    cursor: pointer;
+    background-size: cover;
+  }
+  
+  .running {
+    animation: runDog 0.3s steps(2) infinite;
+  }
+  
+  .bowl {
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .message {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .visible {
+    opacity: 1;
+  }
